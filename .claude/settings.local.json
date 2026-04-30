@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"c:/dev/MVP/fieldmind/backend/venv/bin/python3.10\" -m pip install supabase python-dotenv)",
+      "Bash(cmd.exe /c \"c:\\\\dev\\\\MVP\\\\fieldmind\\\\backend\\\\venv\\\\bin\\\\python3.10 -m pip install supabase python-dotenv\")",
+      "Bash(py -3.9 -m pip install \"cryptography>=41.0.0,<43.0.0\" --force-reinstall)",
+      "Bash(py -3.9 -c \"import supabase; import dotenv; print\\('supabase', supabase.__version__, '| dotenv OK'\\)\")",
+      "Bash(py -3.9 -m pip install \"cryptography==38.0.4\" --force-reinstall)",
+      "Bash(py -3.9 -m pip install python-multipart)",
+      "Bash(py -3.9 -c ' *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

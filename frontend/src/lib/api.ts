@@ -6,7 +6,6 @@ import type {
   ObservationsResponse,
   FarmLayout,
   PlotBed,
-  BedStatus,
 } from '../types';
 
 const BASE = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:8000';

@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import type { FarmLayout, PlotBed, SensorSnapshot, HeatmapOverlay } from '../types';
 import {
-  fetchFarmData, createFarmLayout, createBed, updateBed,
+  fetchFarmData, createFarmLayout, createBed,
 } from '../lib/api';
 import { fetchCurrentSensors } from '../lib/api';
 import FarmToolbar from '../components/FarmToolbar';

@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Sensors from './pages/Sensors';
 import Learning from './pages/Learning';
 import Hardware from './pages/Hardware';
+import FarmPage from './pages/FarmPage';
 import type { SensorSnapshot } from './types';
 
 function AppLayout() {
@@ -25,6 +26,7 @@ function AppLayout() {
           <Route path="/sensors" element={<Sensors />} />
           <Route path="/learning" element={<Learning latestSensors={latestSensors} />} />
           <Route path="/hardware" element={<Hardware />} />
+          <Route path="/farm" element={<FarmPage />} />
           <Route path="*" element={<Dashboard onSensorsUpdate={setLatestSensors} />} />
         </Routes>
       </main>

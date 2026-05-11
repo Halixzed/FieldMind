@@ -70,3 +70,34 @@ export interface ObservationsResponse {
   observations: Observation[];
   count: number;
 }
+
+export interface FarmLayout {
+  id: string;
+  user_id: string;
+  name: string;
+  width_m: number;
+  height_m: number;
+  grid_cols: number;
+  grid_rows: number;
+  created_at: string;
+}
+
+export type BedStatus = 'empty' | 'planted' | 'growing' | 'ready' | 'harvested';
+export type HeatmapOverlay = 'none' | 'moisture' | 'temp' | 'npk' | 'health';
+
+export interface PlotBed {
+  id: string;
+  layout_id: string;
+  user_id: string;
+  row: number;
+  col: number;
+  width: number;
+  height: number;
+  name: string;
+  crop: string | null;
+  planted_date: string | null;
+  status: BedStatus;
+  sensor_node_id: string | null;
+  notes: string | null;
+  created_at: string;
+}

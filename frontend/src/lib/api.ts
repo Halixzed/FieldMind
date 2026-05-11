@@ -4,6 +4,9 @@ import type {
   AIResponse,
   WeatherForecast,
   ObservationsResponse,
+  FarmLayout,
+  PlotBed,
+  BedStatus,
 } from '../types';
 
 const BASE = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:8000';
@@ -91,4 +94,103 @@ export async function logObservation(payload: {
 export async function fetchObservations(): Promise<ObservationsResponse> {
   const r = await authFetch('/learning/observations');
   return r.json();
+}
+
+// ---------------------------------------------------------------------------
+// Farm layout — direct Supabase (no FastAPI needed for CRUD)
+// ---------------------------------------------------------------------------
+
+export async function fetchFarmData(): Promise<{ layout: FarmLayout | null; beds: PlotBed[] }> {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return { layout: null, beds: [] };
+
+  const { data: layouts } = await supabase
+    .from('farm_layouts')
+    .select('*')
+    .eq('user_id', session.user.id)
+    .limit(1);
+
+  if (!layouts || layouts.length === 0) return { layout: null, beds: [] };
+
+  const layout = layouts[0] as FarmLayout;
+
+  const { data: beds } = await supabase
+    .from('plot_beds')
+    .select('*')
+    .eq('layout_id', layout.id)
+    .order('created_at');
+
+  return { layout, beds: (beds ?? []) as PlotBed[] };
+}
+
+export async function createFarmLayout(
+  name: string,
+  gridCols: number,
+  gridRows: number
+): Promise<FarmLayout> {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error('Not authenticated');
+
+  const { data, error } = await supabase
+    .from('farm_layouts')
+    .insert({
+      user_id: session.user.id,
+      name,
+      grid_cols: gridCols,
+      grid_rows: gridRows,
+      width_m: gridCols,
+      height_m: gridRows,
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data as FarmLayout;
+}
+
+export async function createBed(
+  layoutId: string,
+  row: number,
+  col: number
+): Promise<PlotBed> {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new Error('Not authenticated');
+
+  const { data, error } = await supabase
+    .from('plot_beds')
+    .insert({
+      layout_id: layoutId,
+      user_id: session.user.id,
+      row,
+      col,
+      width: 1,
+      height: 1,
+      name: `Bed ${String.fromCharCode(65 + col)}${row + 1}`,
+      status: 'empty',
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data as PlotBed;
+}
+
+export async function updateBed(
+  id: string,
+  patch: Partial<Pick<PlotBed, 'name' | 'crop' | 'planted_date' | 'status' | 'sensor_node_id' | 'notes'>>
+): Promise<PlotBed> {
+  const { data, error } = await supabase
+    .from('plot_beds')
+    .update(patch)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data as PlotBed;
+}
+
+export async function deleteBed(id: string): Promise<void> {
+  const { error } = await supabase.from('plot_beds').delete().eq('id', id);
+  if (error) throw error;
 }

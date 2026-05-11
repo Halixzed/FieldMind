@@ -224,6 +224,86 @@ input[type=range] { flex: 1; accent-color: var(--green); }
 .page-content { animation: fadein 0.15s ease; }
 @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
+/* ── Farm map ─────────────────────────────────────────────────────────── */
+.farm-page { display: flex; flex-direction: column; gap: 12px; }
+
+.farm-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.farm-toolbar-left { display: flex; align-items: baseline; gap: 10px; }
+.farm-title { font-size: 20px; font-weight: 600; }
+.farm-subtitle { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--faint); letter-spacing: 1px; text-transform: uppercase; }
+.farm-toolbar-right { display: flex; align-items: center; gap: 10px; }
+
+.farm-edit-btn { font-size: 12px; font-family: 'DM Mono', monospace; padding: 6px 14px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.farm-edit-btn:hover { background: var(--bg); color: var(--text); }
+.farm-edit-btn.active { background: var(--green-light); color: var(--green); border-color: rgba(59,109,17,0.3); }
+
+.farm-view-toggle { display: flex; background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 2px; gap: 2px; }
+.fvt-btn { font-size: 12px; font-family: 'DM Mono', monospace; padding: 5px 14px; border: none; border-radius: 6px; background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.fvt-btn.active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+.heatmap-bar { display: flex; align-items: center; gap: 6px; }
+.heatmap-bar-label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--faint); letter-spacing: 1px; text-transform: uppercase; margin-right: 4px; }
+.heatmap-btn { font-size: 11px; font-family: 'DM Mono', monospace; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.heatmap-btn:hover { background: var(--bg); color: var(--text); }
+.heatmap-btn.active { font-weight: 500; }
+
+.farm-edit-hint { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--green); background: var(--green-light); border-radius: var(--radius-sm); padding: 7px 12px; }
+
+.farm-main { display: grid; grid-template-columns: 1fr 300px; gap: 12px; align-items: start; }
+.farm-canvas-wrap { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+.farm-2d-scroll { overflow: auto; padding: 8px; }
+.farm-3d-canvas { width: 100%; height: 520px; }
+
+/* Bed panel */
+.bed-panel { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; position: sticky; top: 16px; }
+.bed-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 0.5px solid var(--border); }
+.bed-panel-title { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.bed-emoji { font-size: 20px; line-height: 1; }
+.bed-panel-close { background: none; border: none; font-size: 14px; color: var(--muted); cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: all 0.1s; }
+.bed-panel-close:hover { background: var(--bg); color: var(--text); }
+.bed-panel-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.bed-field label { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--muted); letter-spacing: 0.8px; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.bed-field-hint { font-size: 9px; color: var(--faint); text-transform: none; letter-spacing: 0; }
+.bed-field input, .bed-field select, .bed-field textarea { width: 100%; padding: 8px 10px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; font-size: 13px; outline: none; transition: border-color 0.15s; resize: none; }
+.bed-field input:focus, .bed-field select:focus, .bed-field textarea:focus { border-color: var(--text); }
+
+.bed-sensor-live { background: var(--blue-light); border-radius: var(--radius-sm); padding: 10px 12px; border: 0.5px solid rgba(24,95,165,0.2); }
+.bed-sensor-live-label { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+.bed-sensor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
+.bed-sensor-grid strong { color: var(--text); }
+
+.bed-panel-actions { display: flex; gap: 8px; margin-top: 4px; }
+.bed-save-btn { flex: 1; padding: 10px; border-radius: var(--radius-sm); border: none; background: var(--text); color: var(--bg); font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; }
+.bed-save-btn:hover { opacity: 0.85; }
+.bed-save-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.bed-delete-btn { padding: 10px 14px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: transparent; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; cursor: pointer; transition: all 0.15s; }
+.bed-delete-btn:hover, .bed-delete-btn.confirm { background: var(--red-light); color: var(--red); border-color: rgba(163,45,45,0.3); }
+
+/* Farm loading / empty */
+.farm-loading { display: flex; align-items: center; gap: 8px; padding: 3rem; color: var(--muted); font-size: 13px; font-family: 'DM Mono', monospace; justify-content: center; }
+.farm-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 5rem 2rem; text-align: center; }
+.farm-empty-icon { font-size: 48px; }
+.farm-empty h2 { font-size: 20px; font-weight: 600; }
+.farm-empty p { font-size: 13px; color: var(--muted); max-width: 380px; line-height: 1.6; }
+.farm-create-btn { padding: 12px 28px; border-radius: var(--radius-sm); border: none; background: var(--text); color: var(--bg); font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
+.farm-create-btn:hover { opacity: 0.85; }
+.farm-create-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Legend */
+.farm-legend { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
+.fl-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); }
+.fl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.fl-live { color: var(--green); }
+
+@media (max-width: 768px) {
+  .farm-main { grid-template-columns: 1fr; }
+  .bed-panel { position: static; }
+}
+
+/* ── End Farm map ─────────────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
   .shell { grid-template-columns: 1fr; }
   .sidebar { display: none; }

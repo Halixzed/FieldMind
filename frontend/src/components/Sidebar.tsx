@@ -28,6 +28,9 @@ export default function Sidebar() {
         <NavLink to="/hardware" className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
           Hardware
         </NavLink>
+        <NavLink to="/farm" className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
+          Farm Map
+        </NavLink>
       </div>
 
       <div className="privacy-tag">

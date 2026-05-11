@@ -1,4 +1,4 @@
--- FieldMind — Production Schema
+-- Verdara — Production Schema
 -- Run via: Supabase Dashboard → SQL Editor, or `supabase db push`
 -- -----------------------------------------------------------------------
 

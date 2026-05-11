@@ -52,7 +52,7 @@ export default function Simulator({ onResult }: Props) {
       ))}
 
       <button className="sim-btn" disabled={busy} onClick={run}>
-        {busy ? <><span className="spinner" />Asking FieldMind AI…</> : 'Run AI analysis on these conditions →'}
+        {busy ? <><span className="spinner" />Asking Verdara AI…</> : 'Run AI analysis on these conditions →'}
       </button>
     </div>
   );

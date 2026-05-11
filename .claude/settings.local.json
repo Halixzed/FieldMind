@@ -9,7 +9,10 @@
       "Bash(py -3.9 -m pip install python-multipart)",
       "Bash(py -3.9 -c ' *)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "WebSearch",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)"
     ]
   }
 }

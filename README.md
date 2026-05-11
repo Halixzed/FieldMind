@@ -1,4 +1,4 @@
-# FieldMind — On-Device Agricultural AI · MVP
+# Verdara — On-Device Agricultural AI · MVP
 
 > Local-first AI for allotment farmers. Soil sensors → on-device AI → crop recommendations. No cloud. No data leaves the site.
 
@@ -15,7 +15,7 @@
 ### 2. Run everything
 
 ```bash
-cd fieldmind
+cd verdara
 bash setup.sh
 ```
 
@@ -64,7 +64,7 @@ If Ollama is not running, the backend automatically falls back to rule-based rec
 └───────────────┬─────────────────────────┘
                 │ HTTP
 ┌───────────────▼─────────────────────────┐
-│       FieldMind Backend (FastAPI)        │
+│       Verdara Backend (FastAPI)        │
 │            localhost:8000                │
 │                                          │
 │  • Sensor simulation (or real MQTT)      │

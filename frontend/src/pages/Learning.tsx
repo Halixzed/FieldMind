@@ -114,7 +114,7 @@ export default function Learning({ latestSensors }: Props) {
       <div className="card">
         <div className="card-title">How continual learning works</div>
         <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.75, marginBottom: 12 }}>
-          Every time you log a real crop outcome, FieldMind stores the sensor conditions at planting time alongside your actual yield. Over a growing season, these observations are used to run nightly LoRA fine-tuning jobs — the model adapts to <em>your specific plot&apos;s</em> microclimate, soil quirks, and local conditions.
+          Every time you log a real crop outcome, Verdara stores the sensor conditions at planting time alongside your actual yield. Over a growing season, these observations are used to run nightly LoRA fine-tuning jobs — the model adapts to <em>your specific plot&apos;s</em> microclimate, soil quirks, and local conditions.
         </p>
         <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.75 }}>
           No data ever leaves the device. The model weights are updated locally using{' '}

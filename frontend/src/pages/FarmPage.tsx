@@ -44,6 +44,20 @@ export default function FarmPage() {
     return () => clearInterval(id);
   }, []);
 
+  const handleViewChange = (v: '2d' | '3d') => {
+    setView(v);
+    if (v === '3d') setEditMode(false);
+  };
+
+  const handleEditToggle = () => {
+    if (view === '3d') {
+      setView('2d');
+      setEditMode(true);
+    } else {
+      setEditMode(e => !e);
+    }
+  };
+
   const handleCreateLayout = async () => {
     setCreating(true);
     try {
@@ -103,8 +117,8 @@ export default function FarmPage() {
         view={view}
         editMode={editMode}
         layoutName={layout.name}
-        onViewChange={setView}
-        onEditToggle={() => setEditMode(e => !e)}
+        onViewChange={handleViewChange}
+        onEditToggle={handleEditToggle}
       />
 
       <HeatmapControls active={overlay} onChange={setOverlay} />

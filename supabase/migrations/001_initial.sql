@@ -1,4 +1,4 @@
--- Verdara — Production Schema
+-- Velsar — Production Schema
 -- Run via: Supabase Dashboard → SQL Editor, or `supabase db push`
 -- -----------------------------------------------------------------------
 

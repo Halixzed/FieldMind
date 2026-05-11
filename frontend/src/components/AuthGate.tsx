@@ -47,7 +47,7 @@ export default function AuthGate() {
         <div className="auth-panel">
           <div className="auth-logo">
             <span className="auth-logo-dot" />
-            VERDARA
+            VELSAR
           </div>
 
           <p className="auth-tagline">Your AI-powered field intelligence platform</p>

@@ -73,7 +73,7 @@ export default function Hardware() {
             <div><strong style={{ color: 'var(--text)' }}>Bluetooth LE</strong> — short range, no internet</div>
             <div><strong style={{ color: 'var(--text)' }}>4G LTE dongle</strong> — fully offline from mains</div>
             <div style={{ marginTop: 8, paddingTop: 8, borderTop: '0.5px solid var(--border)', fontSize: 12 }}>
-              Sensor hub → MQTT → Verdara board (local)<br />
+              Sensor hub → MQTT → Velsar board (local)<br />
               Dashboard served over local WiFi AP.<br />
               Farmer accesses via phone browser — no app needed.
             </div>

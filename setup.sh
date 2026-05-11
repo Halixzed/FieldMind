@@ -1,5 +1,5 @@
 #!/bin/bash
-# Verdara MVP — One-command setup and launch
+# Velsar MVP — One-command setup and launch
 # Usage: bash setup.sh
 
 set -e
@@ -10,7 +10,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${GREEN}╔══════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║        Verdara MVP Setup            ║${NC}"
+echo -e "${GREEN}║        Velsar MVP Setup            ║${NC}"
 echo -e "${GREEN}╚══════════════════════════════════════╝${NC}"
 echo ""
 
@@ -63,7 +63,7 @@ fi
 
 # Start backend
 echo ""
-echo -e "${BLUE}→ Starting Verdara backend on :8000...${NC}"
+echo -e "${BLUE}→ Starting Velsar backend on :8000...${NC}"
 uvicorn main:app --reload --port 8000 --host 0.0.0.0 &
 BACKEND_PID=$!
 sleep 2
@@ -89,7 +89,7 @@ fi
 
 echo ""
 echo -e "${GREEN}╔══════════════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║   Verdara is running!                      ║${NC}"
+echo -e "${GREEN}║   Velsar is running!                      ║${NC}"
 echo -e "${GREEN}║                                              ║${NC}"
 echo -e "${GREEN}║   Dashboard: http://localhost:3000           ║${NC}"
 echo -e "${GREEN}║   API docs:  http://localhost:8000/docs      ║${NC}"

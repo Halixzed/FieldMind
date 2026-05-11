@@ -8,7 +8,7 @@ export default function Sidebar() {
     <nav className="sidebar">
       <div className="brand">
         <div className="brand-dot" />
-        <span className="brand-main">VERDARA</span>
+        <span className="brand-main">VELSAR</span>
         <span className="brand-powered">
           POWERED BY <span className="brand-sentinelis">SENTINELIS®</span>
         </span>

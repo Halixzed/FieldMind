@@ -1,4 +1,4 @@
--- Farm layout tables for Verdara grid/3D view
+-- Farm layout tables for Velsar grid/3D view
 -- Each user has one farm layout with a configurable grid
 -- Beds are cells (or multi-cell rectangles) within that grid
 

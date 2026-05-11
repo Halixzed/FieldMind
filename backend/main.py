@@ -1,5 +1,5 @@
 """
-Verdara Backend — Production v2.0
+Velsar Backend — Production v2.0
 FastAPI + Supabase (JWT auth + PostgreSQL persistence)
 
 Start:
@@ -52,7 +52,7 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(name)s — %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
-log = logging.getLogger("verdara")
+log = logging.getLogger("velsar")
 
 # ---------------------------------------------------------------------------
 # Supabase — service-role client (server-side only, never sent to frontend)
@@ -65,7 +65,7 @@ log.info("Supabase client ready → %s", SUPABASE_URL)
 # FastAPI app
 # ---------------------------------------------------------------------------
 
-app = FastAPI(title="Verdara API", version="2.0.0", docs_url="/docs")
+app = FastAPI(title="Velsar API", version="2.0.0", docs_url="/docs")
 
 app.add_middleware(
     CORSMiddleware,
@@ -302,7 +302,7 @@ def get_weather(user=Depends(get_current_user)):
 # AI recommendation — Ollama → Supabase persistence → rule-based fallback
 # ---------------------------------------------------------------------------
 
-SYSTEM_PROMPT = """You are Verdara, an expert agricultural AI assistant running entirely on-device on a local compute board installed at a UK allotment. You have access to real-time soil sensor data and weather forecasts.
+SYSTEM_PROMPT = """You are Velsar, an expert agricultural AI assistant running entirely on-device on a local compute board installed at a UK allotment. You have access to real-time soil sensor data and weather forecasts.
 
 Your job is to give practical, actionable farming advice. Always:
 - Recommend specific crops to plant RIGHT NOW based on sensor data

@@ -1,8 +1,8 @@
-# Fly.io deployment config for Verdara backend
+# Fly.io deployment config for Velsar backend
 # Deploy: fly launch (first time) or fly deploy (subsequent)
 # Docs:   https://fly.io/docs/
 
-app = "verdara-backend"
+app = "velsar-backend"
 primary_region = "lhr"  # London — closest to UK allotment target users
 
 [build]
